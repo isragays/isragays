@@ -1,499 +1,681 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>ישראגייז | קהילת הגייז בישראל</title>
-  <meta name="description" content="ישראגייז - קהילת הגייז בישראל. קבוצות גייז בטלגרם, היכרויות, זוגיות, קהילה, שיתוף סרטונים ועדכונים.">
-  <meta name="keywords" content="גייז ישראל, גייז ישראלי, קבוצות גייז בטלגרם, קבוצות טלגרם לגייז, היכרויות גייז בישראל, קבוצת גייז, ישראגייז">
+<title>ישראגייז | הבית של הגייז בישראל</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<meta name="description" content="ישראגייז - קהילת הגייז בישראל. היכרויות, זוגיות, קהילה, עדכונים ותמיכה.">
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#041827;
+    color:#fff;
+    direction:rtl;
+}
+
+a{
+    -webkit-tap-highlight-color:transparent;
+}
+
+/* HEADER */
+
+.header{
+    height:72px;
+    padding:0 22px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#031522;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    position:relative;
+    z-index:20;
+}
+
+.header-logo{
+    width:145px;
+    max-height:42px;
+    object-fit:contain;
+}
+
+.header-contact{
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:700;
+}
+
+
+/* HERO */
+
+.hero{
+    min-height:650px;
+
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(2,15,25,.18) 0%,
+        rgba(2,15,25,.32) 42%,
+        rgba(4,24,39,.88) 82%,
+        #041827 100%
+      ),
+      url("hero-approved.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    justify-content:center;
+    text-align:center;
+
+    padding:50px 22px 70px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    width:100%;
+    max-width:750px;
+}
+
+.hero-logo{
+    width:min(520px,88vw);
+    max-height:150px;
+    object-fit:contain;
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,.65));
+}
+
+.hero h1{
+    margin-top:18px;
+    font-size:clamp(32px,8vw,58px);
+    line-height:1.15;
+    text-shadow:0 4px 18px rgba(0,0,0,.8);
+}
+
+.hero p{
+    margin:14px auto 26px;
+    font-size:18px;
+    color:#e0e8ed;
+    text-shadow:0 2px 8px #000;
+}
+
+.hero-button{
+    display:inline-block;
+    background:#f5ad19;
+    color:#101820;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:800;
+    padding:14px 27px;
+    border-radius:12px;
+}
+
+
+/* CONTENT */
+
+.community{
+    width:min(1050px,92%);
+    margin:auto;
+    padding:45px 0 70px;
+}
+
+.section-head{
+    text-align:center;
+    max-width:650px;
+    margin:0 auto 35px;
+}
+
+.section-head h2{
+    font-size:36px;
+    margin-bottom:8px;
+}
+
+.section-head p{
+    color:#9dafbb;
+    font-size:17px;
+    line-height:1.7;
+}
+
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.card{
+    background:#09263a;
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 14px 35px rgba(0,0,0,.2);
+}
+
+.card-image{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    display:block;
+    background:#0b2638;
+}
+
+.card-body{
+    padding:25px;
+}
+
+.card h3{
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+.card p{
+    color:#9dafbb;
+    font-size:16px;
+    line-height:1.6;
+    min-height:50px;
+}
+
+.button{
+    display:inline-block;
+    margin-top:18px;
+    padding:11px 20px;
+    border-radius:10px;
+    background:#168fdb;
+    color:white;
+    text-decoration:none;
+    font-size:15px;
+    font-weight:800;
+}
+
+
+/* REPORT / SUPPORT */
+
+.small-card{
+    display:flex;
+    align-items:center;
+    min-height:210px;
+}
+
+.card-icon{
+    width:38%;
+    align-self:stretch;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:70px;
+
+    background:
+      radial-gradient(
+        circle,
+        #15506f 0%,
+        #0c3046 55%,
+        #082337 100%
+      );
+}
+
+.small-card .card-body{
+    width:62%;
+}
+
+
+/* ABOUT */
+
+.about{
+    border-top:1px solid rgba(255,255,255,.08);
+    padding:80px 22px;
+    text-align:center;
+    background:#031522;
+}
+
+.about-inner{
+    max-width:760px;
+    margin:auto;
+}
+
+.about-label{
+    color:#8da0ad;
+    font-size:15px;
+}
+
+.about h2{
+    font-size:clamp(31px,7vw,50px);
+    line-height:1.3;
+    margin:15px 0 25px;
+}
+
+.about p{
+    color:#a9b7c0;
+    font-size:18px;
+    line-height:1.9;
+}
+
+
+/* FOOTER */
+
+footer{
+    padding:45px 20px;
+    text-align:center;
+    background:#02121e;
+    border-top:1px solid rgba(255,255,255,.07);
+    color:#71828e;
+    font-size:14px;
+}
+
+.footer-logo{
+    width:150px;
+    max-height:55px;
+    object-fit:contain;
+    margin-bottom:12px;
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+    .header{
+        height:65px;
+        padding:0 17px;
     }
 
-    html {
-      scroll-behavior: smooth;
+    .header-logo{
+        width:125px;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #031727;
-      color: #fff;
-      direction: rtl;
-      line-height: 1.6;
+    .hero{
+        min-height:560px;
+        padding-bottom:55px;
+        background-position:center center;
     }
 
-    /* HEADER */
-    header {
-      height: 76px;
-      background: rgba(2, 18, 31, 0.96);
-      border-bottom: 1px solid #16364d;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 6%;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    .hero-logo{
+        width:85vw;
     }
 
-    .top-logo {
-      height: 38px;
-      max-width: 170px;
-      object-fit: contain;
+    .hero h1{
+        font-size:36px;
     }
 
-    .contact-link {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 17px;
+    .hero p{
+        font-size:16px;
     }
 
-    /* HERO */
-    .hero {
-      min-height: 690px;
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      background:
-        linear-gradient(
-          to bottom,
-          rgba(3,23,39,.25),
-          rgba(3,23,39,.72) 58%,
-          #031727 100%
-        ),
-        url("אישור גיבור.jpg") center center / cover no-repeat;
+    .community{
+        width:91%;
+        padding-top:35px;
     }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at center, transparent 10%, rgba(0,0,0,.28) 100%);
+    .section-head h2{
+        font-size:31px;
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      width: 92%;
-      max-width: 850px;
-      padding-top: 200px;
+    .cards{
+        grid-template-columns:1fr;
+        gap:20px;
     }
 
-    .hero-logo {
-      width: min(600px, 88vw);
-      max-height: 180px;
-      object-fit: contain;
-      filter: drop-shadow(0 8px 20px rgba(0,0,0,.55));
+    .card-image{
+        height:auto;
+        aspect-ratio:16/9;
+        object-fit:cover;
     }
 
-    .hero h1 {
-      font-size: clamp(32px, 7vw, 58px);
-      margin-top: 20px;
-      font-weight: 800;
-      text-shadow: 0 3px 15px rgba(0,0,0,.6);
+    .card-body{
+        padding:22px;
     }
 
-    .hero p {
-      color: #d1dae1;
-      font-size: clamp(17px, 4vw, 23px);
-      margin: 10px auto 28px;
+    .card h3{
+        font-size:25px;
     }
 
-    .main-button {
-      display: inline-block;
-      background: #ffb51b;
-      color: #14202a;
-      padding: 16px 34px;
-      border-radius: 14px;
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 800;
-      transition: .2s;
+    .card p{
+        min-height:0;
     }
 
-    .main-button:hover {
-      transform: translateY(-2px);
+    .small-card{
+        min-height:190px;
     }
 
-    /* MAIN */
-    main {
-      width: min(1120px, 92%);
-      margin: auto;
-      padding: 55px 0;
+    .card-icon{
+        font-size:58px;
     }
 
-    .intro {
-      text-align: center;
-      max-width: 760px;
-      margin: 0 auto 40px;
+    .about{
+        padding:65px 25px;
     }
-
-    .intro h2 {
-      font-size: clamp(30px, 6vw, 45px);
-      margin-bottom: 12px;
-    }
-
-    .intro p {
-      color: #9baab6;
-      font-size: 18px;
-    }
-
-    /* CARDS */
-    .cards {
-      display: grid;
-      gap: 26px;
-    }
-
-    .card {
-      min-height: 320px;
-      display: grid;
-      grid-template-columns: 42% 58%;
-      background: #092438;
-      border: 1px solid #21455f;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 15px 35px rgba(0,0,0,.16);
-    }
-
-    .card-image {
-      width: 100%;
-      height: 100%;
-      min-height: 320px;
-      object-fit: cover;
-      background: #0b2639;
-    }
-
-    .card-info {
-      padding: 38px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .card-info h3 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .card-info p {
-      color: #a8b4bd;
-      font-size: 18px;
-      margin-bottom: 25px;
-    }
-
-    .card-button {
-      align-self: flex-start;
-      display: inline-block;
-      background: #168fe5;
-      color: #fff;
-      text-decoration: none;
-      padding: 13px 27px;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: 800;
-    }
-
-    /* SPECIAL CARDS */
-    .icon-card {
-      min-height: 250px;
-    }
-
-    .icon-side {
-      min-height: 250px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 90px;
-      background:
-        radial-gradient(circle, #154867 0%, #0b2b40 55%, #082236 100%);
-    }
-
-    /* ABOUT */
-    .about {
-      margin-top: 75px;
-      padding: 75px 7%;
-      border-top: 1px solid #1c4059;
-      text-align: center;
-    }
-
-    .about small {
-      font-size: 17px;
-      color: #fff;
-    }
-
-    .about h2 {
-      max-width: 800px;
-      margin: 15px auto 25px;
-      font-size: clamp(34px, 7vw, 58px);
-      line-height: 1.35;
-    }
-
-    .about p {
-      max-width: 760px;
-      margin: auto;
-      color: #9baab6;
-      font-size: 19px;
-      line-height: 1.9;
-    }
-
-    footer {
-      border-top: 1px solid #1c4059;
-      text-align: center;
-      padding: 55px 20px;
-      color: #728493;
-    }
-
-    footer img {
-      width: 170px;
-      max-height: 65px;
-      object-fit: contain;
-      margin-bottom: 15px;
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-      header {
-        height: 68px;
-        padding: 0 20px;
-      }
-
-      .top-logo {
-        height: 30px;
-        max-width: 145px;
-      }
-
-      .hero {
-        min-height: 620px;
-        background-position: center;
-      }
-
-      .hero-content {
-        padding-top: 180px;
-      }
-
-      main {
-        width: 91%;
-        padding-top: 35px;
-      }
-
-      .card {
-        grid-template-columns: 42% 58%;
-        min-height: 280px;
-      }
-
-      .card-image {
-        min-height: 280px;
-      }
-
-      .card-info {
-        padding: 22px 17px;
-      }
-
-      .card-info h3 {
-        font-size: 25px;
-      }
-
-      .card-info p {
-        font-size: 16px;
-      }
-
-      .card-button {
-        padding: 11px 17px;
-        font-size: 16px;
-      }
-
-      .icon-side {
-        min-height: 230px;
-        font-size: 70px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
+
 
 <body>
 
-<header>
-  <img src="לוגו.png" class="top-logo" alt="ישראגייז">
-  <a href="#contact" class="contact-link">צור קשר</a>
+
+<header class="header">
+
+    <img
+      src="logo.png"
+      class="header-logo"
+      alt="ישראגייז">
+
+    <a
+      href="#contact"
+      class="header-contact">
+      צור קשר
+    </a>
+
 </header>
 
+
 <section class="hero">
-  <div class="hero-content">
-    <img src="לוגו.png" class="hero-logo" alt="ישראגייז">
-    <h1>הבית של הגייז בישראל</h1>
-    <p>קהילה | היכרויות | זוגיות | עדכונים | תמיכה</p>
-    <a href="#community" class="main-button">הכירו את הקהילה</a>
-  </div>
+
+    <div class="hero-content">
+
+        <img
+          src="logo.png"
+          class="hero-logo"
+          alt="ישראגייז">
+
+        <h1>הבית של הגייז בישראל</h1>
+
+        <p>
+          קהילה ישראלית להיכרויות, זוגיות,
+          עדכונים ותמיכה
+        </p>
+
+        <a
+          href="#community"
+          class="hero-button">
+          הכירו את הקהילה
+        </a>
+
+    </div>
+
 </section>
 
-<main id="community">
 
-  <section class="intro">
-    <h2>הקהילה שלנו</h2>
-    <p>
-      כל הקבוצות והערוצים של ישראגייז במקום אחד.
-      בחרו את המקום שמתאים לכם והצטרפו לקהילה.
-    </p>
-  </section>
 
-  <section class="cards">
+<main class="community" id="community">
 
-    <!-- סטוצים -->
-    <article class="card">
-      <img
-        id="stutzim-image"
-        class="card-image"
-        alt="ישראגייז סטוצים">
-      <div class="card-info">
-        <h3>סטוצים</h3>
-        <p>קבוצת ההיכרויות והמפגשים של ישראגייז.</p>
-        <a href="#" class="card-button">הצטרפו לקבוצה</a>
-      </div>
-    </article>
+    <div class="section-head">
 
-    <!-- זוגיות -->
-    <article class="card">
-      <img
-        src="קשר.png"
-        class="card-image"
-        alt="ישראגייז זוגיות">
-      <div class="card-info">
-        <h3>זוגיות</h3>
-        <p>להכיר אנשים חדשים ולמצוא קשר משמעותי.</p>
-        <a href="#" class="card-button">הצטרפו לקבוצה</a>
-      </div>
-    </article>
+        <h2>הקהילה שלנו</h2>
 
-    <!-- עיסוי וליווי -->
-    <article class="card">
-      <img
-        src="פרימיום.jpg"
-        class="card-image"
-        alt="ישראגייז עיסוי וליווי">
-      <div class="card-info">
-        <h3>עיסוי וליווי</h3>
-        <p>הקבוצה הייעודית של קהילת ישראגייז.</p>
-        <a href="#" class="card-button">הצטרפו לקבוצה</a>
-      </div>
-    </article>
+        <p>
+          כל הקבוצות והערוצים של ישראגייז
+          במקום אחד.
+        </p>
 
-    <!-- שיתוף סרטונים -->
-    <article class="card">
-      <img
-        id="share-image"
-        class="card-image"
-        alt="ישראגייז שיתוף סרטונים">
-      <div class="card-info">
-        <h3>שיתוף סרטונים</h3>
-        <p>קהילת שיתוף הסרטונים של ישראגייז.</p>
-        <a href="#" class="card-button">הצטרפו לקבוצה</a>
-      </div>
-    </article>
+    </div>
 
-    <!-- אנונימי -->
-    <article class="card">
-      <img
-        id="anonymous-image"
-        class="card-image"
-        alt="ערוץ הסרטונים האנונימי של ישראגייז">
-      <div class="card-info">
-        <h3>ערוץ סרטונים אנונימי</h3>
-        <p>ערוץ הסרטונים האנונימי של ישראגייז.</p>
-        <a href="#" class="card-button">מעבר לערוץ</a>
-      </div>
-    </article>
 
-    <!-- דיווחים -->
-    <article class="card icon-card">
-      <div class="icon-side">📣</div>
-      <div class="card-info">
-        <h3>ערוץ הדיווחים</h3>
-        <p>עדכונים, חדשות ודיווחים מהקהילה.</p>
-        <a href="#" class="card-button">מעבר לערוץ</a>
-      </div>
-    </article>
+    <div class="cards">
 
-    <!-- תמיכה -->
-    <article class="card icon-card" id="contact">
-      <div class="icon-side">💬</div>
-      <div class="card-info">
-        <h3>תמיכה</h3>
-        <p>צריכים עזרה? דברו איתנו ישירות.</p>
-        <a href="#" class="card-button">שליחת הודעה</a>
-      </div>
-    </article>
 
-  </section>
+        <!-- סטוצים -->
+
+        <article class="card">
+
+            <img
+              src="ישראגייז סטוצים.png"
+              class="card-image"
+              alt="ישראגייז סטוצים">
+
+            <div class="card-body">
+
+                <h3>סטוצים</h3>
+
+                <p>
+                    קבוצת הקהילה של ישראגייז.
+                </p>
+
+                <span class="button">
+                    18+ בלבד
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- זוגיות -->
+
+        <article class="card">
+
+            <img
+              src="ישראגייז לזוגיות.png"
+              class="card-image"
+              alt="ישראגייז לזוגיות">
+
+            <div class="card-body">
+
+                <h3>זוגיות</h3>
+
+                <p>
+                    מקום להיכרויות וליצירת קשרים
+                    בקהילה.
+                </p>
+
+                <span class="button">
+                    לפרטים
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- עיסוי וליווי -->
+
+        <article class="card">
+
+            <img
+              src="ישראגייז עיסוי וליווי.jpg"
+              class="card-image"
+              alt="ישראגייז עיסוי וליווי">
+
+            <div class="card-body">
+
+                <h3>עיסוי וליווי</h3>
+
+                <p>
+                    אזור המיועד למבוגרים בלבד.
+                </p>
+
+                <span class="button">
+                    18+ בלבד
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- שיתוף סרטונים -->
+
+        <article class="card">
+
+            <img
+              src="ישראגייז שיתוף סרטונים.jpg"
+              class="card-image"
+              alt="ישראגייז שיתוף סרטונים">
+
+            <div class="card-body">
+
+                <h3>שיתוף סרטונים</h3>
+
+                <p>
+                    אזור שיתוף המדיה של הקהילה.
+                </p>
+
+                <span class="button">
+                    18+ בלבד
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- סרטונים אנונימיים -->
+
+        <article class="card">
+
+            <img
+              src="ערוץ סרטונים אנונימי.png"
+              class="card-image"
+              alt="ערוץ סרטונים אנונימי">
+
+            <div class="card-body">
+
+                <h3>ערוץ סרטונים אנונימי</h3>
+
+                <p>
+                    ערוץ מדיה המיועד למבוגרים בלבד.
+                </p>
+
+                <span class="button">
+                    18+ בלבד
+                </span>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- דיווחים -->
+
+        <article class="card small-card">
+
+            <div class="card-icon">
+                📣
+            </div>
+
+            <div class="card-body">
+
+                <h3>ערוץ הדיווחים</h3>
+
+                <p>
+                    חדשות, עדכונים ודיווחים
+                    מהקהילה.
+                </p>
+
+                <a
+                  href="https://t.me/IsraGays"
+                  class="button">
+                  מעבר לערוץ
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- תמיכה -->
+
+        <article
+          class="card small-card"
+          id="contact">
+
+            <div class="card-icon">
+                💬
+            </div>
+
+            <div class="card-body">
+
+                <h3>תמיכה</h3>
+
+                <p>
+                    צריכים עזרה?
+                    ניתן ליצור איתנו קשר.
+                </p>
+
+                <a
+                  href="https://t.me/IsraGays?direct"
+                  class="button">
+                  שליחת הודעה
+                </a>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
 </main>
 
-<section class="about">
-  <small>על ישראגייז</small>
-  <h2>אנחנו בישראגייז מאמינים שלכל אחד מגיע לאהוב.</h2>
 
-  <p>
-    קהילת הגייז הגדולה והבטוחה בישראל.
-    <br><br>
-    ישראגייז היא קהילה הפועלת בהתנדבות מלאה למען הקהילה.
-    בחרנו לפעול בטלגרם כדי ליצור מקום נגיש, מכבד ובטוח יותר.
-    <br><br>
-    במקום שבו קל להישאר לבד, אנחנו בוחרים להיות קהילה.
-  </p>
+
+<section class="about">
+
+    <div class="about-inner">
+
+        <div class="about-label">
+            על ישראגייז
+        </div>
+
+        <h2>
+            אנחנו בישראגייז מאמינים
+            שלכל אחד מגיע לאהוב.
+        </h2>
+
+        <p>
+            קהילת הגייז הגדולה והבטוחה בישראל.
+            <br><br>
+
+            ישראגייז היא קהילה הפועלת בהתנדבות מלאה
+            למען הקהילה. בחרנו לפעול בטלגרם כי החלטנו
+            להיכנס למקום שאחרים נמנעים ממנו —
+            כדי להפוך אותו לבטוח יותר.
+            <br><br>
+
+            במקום שבו קל להישאר לבד,
+            אנחנו בוחרים להיות קהילה.
+        </p>
+
+    </div>
+
 </section>
 
+
+
 <footer>
-  <img src="לוגו.png" alt="ישראגייז">
-  <div>© 2026 ישראגייז · כל הזכויות שמורות</div>
+
+    <img
+      src="logo.png"
+      class="footer-logo"
+      alt="ישראגייז">
+
+    <div>
+        © 2026 ישראגייז · כל הזכויות שמורות
+    </div>
+
 </footer>
 
-<script>
-/*
-  GitHub Pages לא מאפשר לדפדפן לקבל אוטומטית רשימת קבצים
-  מהתיקייה, לכן כאן אנחנו מנסים את שמות הקבצים הידועים.
-*/
-
-const stutzimCandidates = [
-  "זוגיות_0000_023651_20261001.png",
-  "0000_023651_20261001_זוגיות.png"
-];
-
-const shareCandidates = [
-  "IMG_20260930_134232_358.jpg",
-  "IMG_20260930_134232_358.jpeg"
-];
-
-const anonymousCandidates = [
-  "00000000f97c8210acc1e1c35d8e01_2e.png",
-  "00000000f97c8210acc1e1c35d8e01.png"
-];
-
-function tryImages(elementId, candidates, index = 0) {
-  const img = document.getElementById(elementId);
-
-  if (!img || index >= candidates.length) {
-    return;
-  }
-
-  img.onerror = function () {
-    tryImages(elementId, candidates, index + 1);
-  };
-
-  img.src = candidates[index];
-}
-
-tryImages("stutzim-image", stutzimCandidates);
-tryImages("share-image", shareCandidates);
-tryImages("anonymous-image", anonymousCandidates);
-</script>
 
 </body>
 </html>
