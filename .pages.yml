@@ -1,0 +1,44 @@
+media:
+  input: images
+  output: /images
+
+content:
+  - name: articles
+    label: כתבות המגזין
+    type: collection
+    path: articles
+    format: json
+    filename: "{primary}.json"
+    view:
+      fields: [title, category, date]
+      primary: title
+      sort: [date]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - name: title
+        label: כותרת הכתבה
+        type: string
+        required: true
+      - name: description
+        label: כותרת משנה
+        type: text
+      - name: category
+        label: קטגוריה
+        type: select
+        options:
+          - חברה וקהילה
+          - חדשות
+          - היכרויות וזוגיות
+          - מדריכים
+          - אירועים
+      - name: date
+        label: תאריך פרסום
+        type: date
+      - name: image
+        label: תמונת שער
+        type: image
+      - name: body
+        label: תוכן הכתבה
+        type: rich-text
