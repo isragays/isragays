@@ -8,7 +8,7 @@ content:
     type: collection
     path: articles
     format: json
-    filename: "{primary}.json"
+    filename: "{primary}"
     view:
       fields: [title, category, date]
       primary: title
