@@ -8,7 +8,6 @@ content:
     type: collection
     path: מאמרים
     format: json
-    filename: "{slug}.json"
     view:
       fields: [title, category, date]
       primary: title
