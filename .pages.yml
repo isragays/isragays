@@ -6,7 +6,7 @@ content:
   - name: articles
     label: כתבות המגזין
     type: collection
-    path: articles
+    path: מאמרים
     format: json
     filename: "{slug}.json"
     view:
