@@ -8,6 +8,8 @@ content:
     type: collection
     path: מאמרים
     format: json
+    filename: "{year}-{month}-{day}-{hour}-{minute}-{second}.json"
+
     view:
       fields: [title, category, date]
       primary: title
@@ -15,29 +17,41 @@ content:
       default:
         sort: date
         order: desc
+
     fields:
       - name: title
         label: כותרת הכתבה
         type: string
         required: true
+
       - name: description
         label: כותרת משנה
         type: text
+
       - name: category
         label: קטגוריה
         type: select
         options:
-          - חברה וקהילה
-          - חדשות
-          - היכרויות וזוגיות
-          - מדריכים
-          - אירועים
+          values:
+            - value: community
+              label: חברה וקהילה
+            - value: news
+              label: חדשות
+            - value: relationships
+              label: היכרויות וזוגיות
+            - value: guides
+              label: מדריכים
+            - value: events
+              label: אירועים
+
       - name: date
         label: תאריך פרסום
         type: date
+
       - name: image
         label: תמונת שער
         type: image
+
       - name: body
         label: תוכן הכתבה
         type: rich-text
