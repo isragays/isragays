@@ -643,7 +643,210 @@ footer{
 
 </section>
 
+<!-- מגזין ישראגייז - אזור בעמוד הבית -->
 
+<style>
+  #isragays-magazine {
+    max-width: 1100px;
+    margin: 45px auto;
+    padding: 35px 20px;
+    text-align: center;
+    direction: rtl;
+    font-family: Arial, sans-serif;
+  }
+
+  #isragays-magazine h2 {
+    color: #f3cb75;
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+
+  #isragays-magazine .magazine-description {
+    color: #c0c9d9;
+    font-size: 17px;
+    margin-bottom: 30px;
+  }
+
+  #isragays-magazine .magazine-card {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 25px;
+    background: #111c31;
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #fff;
+    transition: transform .2s;
+  }
+
+  #isragays-magazine .magazine-card:hover {
+    transform: translateY(-4px);
+  }
+
+  #isragays-magazine .magazine-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+
+  #isragays-magazine .magazine-card-content {
+    padding: 25px;
+  }
+
+  #isragays-magazine .magazine-card h3 {
+    color: #fff;
+    font-size: 25px;
+    margin: 0 0 12px;
+  }
+
+  #isragays-magazine .magazine-card p {
+    color: #b5c1d2;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  #isragays-magazine .magazine-button {
+    display: inline-block;
+    padding: 13px 30px;
+    border-radius: 30px;
+    background: #f3cb75;
+    color: #10192b;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  #isragays-magazine .magazine-status {
+    color: #b5c1d2;
+    padding: 20px;
+  }
+</style>
+
+<section id="isragays-magazine">
+
+  <h2>מגזין ישראגייז</h2>
+
+  <p class="magazine-description">
+    סיפורים, אנשים, חדשות ונקודות מבט מהקהילה הגאה בישראל.
+  </p>
+
+  <div id="isragays-latest-article">
+    <p class="magazine-status">טוען את הכתבה האחרונה...</p>
+  </div>
+
+  <a class="magazine-button" href="/magazine.html">
+    לכל הכתבות ←
+  </a>
+
+</section>
+
+<script>
+(function () {
+  const container = document.getElementById("isragays-latest-article");
+
+  function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, c => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[c]);
+  }
+
+  async function loadLatestArticle() {
+    try {
+      const api =
+        "https://api.github.com/repos/isragays/isragays.github.io/contents/" +
+        encodeURIComponent("מאמרים");
+
+      const response = await fetch(api);
+
+      if (!response.ok) throw new Error("API error");
+
+      const files = await response.json();
+
+      const jsonFiles = files.filter(file =>
+        file.type === "file" &&
+        file.name.toLowerCase().endsWith(".json")
+      );
+
+      const articles = await Promise.all(
+        jsonFiles.map(async file => {
+          try {
+            const result = await fetch(
+              "/" +
+              encodeURIComponent("מאמרים") +
+              "/" +
+              encodeURIComponent(file.name)
+            );
+
+            if (!result.ok) return null;
+
+            const article = await result.json();
+
+            return {
+              ...article,
+              filename: file.name
+            };
+          } catch {
+            return null;
+          }
+        })
+      );
+
+      const latest = articles
+        .filter(article => article && article.title)
+        .sort((a, b) =>
+          String(b.date || "").localeCompare(String(a.date || ""))
+        )[0];
+
+      if (!latest) {
+        container.innerHTML =
+          '<p class="magazine-status">בקרוב יעלו כתבות חדשות.</p>';
+        return;
+      }
+
+      const image = latest.image
+        ? /^https?:\/\//i.test(latest.image)
+          ? latest.image
+          : "/" + latest.image.replace(/^\/+/, "")
+        : "";
+
+      const link =
+        "/magazine.html?article=" +
+        encodeURIComponent(latest.filename);
+
+      container.innerHTML = `
+        <a class="magazine-card" href="${link}">
+          ${
+            image
+              ? `<img src="${escapeHTML(image)}" alt="${escapeHTML(latest.title)}" loading="lazy">`
+              : ""
+          }
+
+          <div class="magazine-card-content">
+            <h3>${escapeHTML(latest.title)}</h3>
+            <p>${escapeHTML(latest.description || "")}</p>
+            <span style="color:#f3cb75;font-weight:bold;">
+              לקריאת הכתבה ←
+            </span>
+          </div>
+        </a>
+      `;
+
+    } catch {
+      container.innerHTML =
+        '<p class="magazine-status">לא ניתן לטעון את הכתבה כרגע.</p>';
+    }
+  }
+
+  loadLatestArticle();
+})();
+</script>
+
+<!-- סוף אזור מגזין ישראגייז -->
 <footer>
 
     <img src="logo.png"
