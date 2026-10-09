@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>מגזין ישראגייז | כתבות, סיפורים והקהילה הגאה בישראל</title>
+  <meta name="description" content="מגזין ישראגייז: כתבות, סיפורים אישיים, חדשות ומדריכים לקהילה הגאה בישראל.">
+  <link rel="canonical" href="https://isragays.github.io/magazine.html">
+  <link rel="icon" type="image/jpeg" href="/אייקון.jpg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="מגזין ישראגייז">
+  <meta property="og:description" content="סיפורים, כתבות ותוכן לקהילה הגאה בישראל">
+  <meta property="og:url" content="https://isragays.github.io/magazine.html">
+
+  <style>
+    :root {
+      --bg: #070d1c;
+      --card: #111c33;
+      --card2: #17243d;
+      --text: #f6f8ff;
+      --muted: #a8b5cb;
+      --gold: #f4cc72;
+      --border: rgba(255,255,255,.1);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    header {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+      background: #0b1428;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 900;
+      color: var(--gold);
+    }
+
+    .back {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 0 55px;
+      background: radial-gradient(ellipse at top, #182e54, transparent 70%);
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 66px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      color: var(--muted);
+      max-width: 620px;
+      margin: 15px auto;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 35px 0 80px;
+    }
+
+    .card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
+
+    .cover {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      display: block;
+      background: var(--card2);
+    }
+
+    .placeholder {
+      display: grid;
+      place-items: center;
+      font-size: 55px;
+    }
+
+    .card-content { padding: 22px; }
+
+    .meta {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .card h2 {
+      font-size: 23px;
+      line-height: 1.45;
+      margin: 12px 0;
+    }
+
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 18px;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .article {
+      max-width: 800px;
+      margin: 50px auto 100px;
+    }
+
+    .article h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      margin: 14px 0;
+    }
+
+    .article-description {
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+
+    .article-cover {
+      width: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 15px 0 35px;
+    }
+
+    .article-body {
+      font-size: 19px;
+      line-height: 2;
+      overflow-wrap: anywhere;
+    }
+
+    .article-body p { margin: 0 0 22px; }
+
+    .article-body h2 {
+      color: var(--gold);
+      font-size: 27px;
+      margin: 38px 0 15px;
+    }
+
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .article-body a {
+      color: var(--gold);
+      text-decoration: underline;
+    }
+
+    .article-body blockquote {
+      border-right: 3px solid var(--gold);
+      padding-right: 18px;
+      color: var(--muted);
+    }
+
+    .article-back {
+      display: inline-block;
+      margin-top: 40px;
+      color: var(--gold);
+      font-weight: bold;
+    }
+
+    .message {
+      text-align: center;
+      color: var(--muted);
+      padding: 60px 20px;
+      grid-column: 1 / -1;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 850px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .grid { grid-template-columns: 1fr; }
+      .hero { padding: 55px 0 35px; }
+      .article { margin-top: 30px; }
+      .article-body { font-size: 17px; }
+      .brand { font-size: 20px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="brand" href="/">ישראגייז 🇮🇱🏳️‍🌈</a>
+    <a class="back" href="/">← חזרה לאתר הראשי</a>
+  </div>
+</header>
+
+<main id="app">
+  <section class="hero">
+    <div class="container">
+      <div class="eyebrow">ISRAGAYS MAGAZINE</div>
+      <h1>המגזין שלנו.</h1>
+      <p>סיפורים, אנשים, חדשות ונקודות מבט מהקהילה הגאה בישראל.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="grid">
+      <div class="message">טוען כתבות...</div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  ישראגייז © <span id="year"></span> | הבית של הגייז בישראל
+</footer>
+
+<script>
+  const OWNER = "isragays";
+  const REPO = "isragays.github.io";
+  const FOLDER = "מאמרים";
+
+  const app = document.getElementById("app");
+
+  document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+  function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, c => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    })[c]);
+  }
+
+  function formatDate(value) {
+    if (!value) return "";
+    const date = new Date(value);
+    return Number.isNaN(date.getTime())
+      ? ""
+      : date.toLocaleDateString("he-IL");
+  }
+
+  function categoryName(value) {
+    const categories = {
+      community: "חברה וקהילה",
+      news: "חדשות",
+      relationships: "היכרויות וזוגיות",
+      guides: "מדריכים",
+      events: "אירועים"
+    };
+
+    return categories[value] || value || "";
+  }
+
+  function imageURL(value) {
+    if (!value || typeof value !== "string") return "";
+
+    if (/^https?:\/\//i.test(value)) return value;
+
+    return "/" + value.replace(/^\/+/, "");
+  }
+
+  function articleLink(filename) {
+    return "magazine.html?article=" + encodeURIComponent(filename);
+  }
+
+  function articleCard(article, filename) {
+    const image = imageURL(article.image);
+
+    return `
+      <a class="card" href="${articleLink(filename)}">
+        ${
+          image
+            ? `<img class="cover" src="${escapeHTML(image)}"
+                 alt="${escapeHTML(article.title)}" loading="lazy">`
+            : `<div class="cover placeholder">📰</div>`
+        }
+
+        <div class="card-content">
+          <div class="meta">
+            ${escapeHTML(categoryName(article.category))}
+            ${article.date ? " • " + escapeHTML(formatDate(article.date)) : ""}
+          </div>
+
+          <h2>${escapeHTML(article.title)}</h2>
+
+          <p>${escapeHTML(article.description || "")}</p>
+
+          <span class="read-more">לקריאת הכתבה ←</span>
+        </div>
+      </a>
+    `;
+  }
+
+  async function loadMagazine() {
+    try {
+      const api =
+        `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(FOLDER)}`;
+
+      const response = await fetch(api);
+
+      if (!response.ok) throw new Error("Cannot load article list");
+
+      const files = await response.json();
+
+      const jsonFiles = files.filter(file =>
+        file.type === "file" &&
+        file.name.toLowerCase().endsWith(".json")
+      );
+
+      const articles = await Promise.all(
+        jsonFiles.map(async file => {
+          try {
+            const response = await fetch(
+              `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(file.name)}`
+            );
+
+            if (!response.ok) throw new Error("Article unavailable");
+
+            const data = await response.json();
+
+            return { ...data, filename: file.name };
+          } catch {
+            return null;
+          }
+        })
+      );
+
+      const validArticles = articles
+        .filter(article => article && article.title)
+        .sort((a, b) =>
+          String(b.date || "").localeCompare(String(a.date || ""))
+        );
+
+      const grid = document.querySelector(".grid");
+
+      if (!validArticles.length) {
+        grid.innerHTML =
+          `<div class="message">בקרוב יעלו כתבות חדשות למגזין.</div>`;
+        return;
+      }
+
+      grid.innerHTML = validArticles
+        .map(article => articleCard(article, article.filename))
+        .join("");
+
+    } catch (error) {
+      document.querySelector(".grid").innerHTML =
+        `<div class="message">
+          לא הצלחנו לטעון את הכתבות כרגע. נסו שוב מאוחר יותר.
+        </div>`;
+    }
+  }
+
+  function renderBody(body) {
+    const value = String(body || "");
+
+    if (!value) return "";
+
+    // Rich text from Pages CMS may be stored as HTML.
+    if (/<[a-z][\s\S]*>/i.test(value)) {
+      return value;
+    }
+
+    // Plain text fallback.
+    return value
+      .split(/\n\s*\n/)
+      .map(paragraph =>
+        `<p>${escapeHTML(paragraph).replace(/\n/g, "<br>")}</p>`
+      )
+      .join("");
+  }
+
+  async function loadArticle(filename) {
+    // Prevent unexpected paths.
+    if (
+      !filename ||
+      filename.includes("/") ||
+      filename.includes("\\") ||
+      !filename.endsWith(".json")
+    ) {
+      app.innerHTML =
+        `<div class="message">הכתבה המבוקשת לא נמצאה.</div>`;
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(filename)}`
+      );
+
+      if (!response.ok) throw new Error("Article unavailable");
+
+      const article = await response.json();
+
+      document.title =
+        (article.title || "כתבה") + " | מגזין ישראגייז";
+
+      const image = imageURL(article.image);
+
+      app.innerHTML = `
+        <div class="container">
+          <article class="article">
+
+            <div class="meta">
+              ${escapeHTML(categoryName(article.category))}
+              • ${escapeHTML(formatDate(article.date))}
+            </div>
+
+            <h1>${escapeHTML(article.title)}</h1>
+
+            <div class="article-description">
+              ${escapeHTML(article.description || "")}
+            </div>
+
+            ${
+              image
+                ? `<img class="article-cover"
+                    src="${escapeHTML(image)}"
+                    alt="${escapeHTML(article.title)}">`
+                : ""
+            }
+
+            <div class="article-body">
+              ${renderBody(article.body)}
+            </div>
+
+            <a class="article-back" href="magazine.html">
+              → חזרה לכל הכתבות
+            </a>
+
+          </article>
+        </div>
+      `;
+
+    } catch (error) {
+      app.innerHTML =
+        `<div class="message">לא הצלחנו לפתוח את הכתבה.</div>`;
+    }
+  }
+
+  const requestedArticle =
+    new URLSearchParams(window.location.search).get("article");
+
+  if (requestedArticle) {
+    loadArticle(requestedArticle);
+  } else {
+    loadMagazine();
+  }
+</script>
+
+</body>
+</html>
