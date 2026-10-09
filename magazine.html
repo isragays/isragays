@@ -4,19 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>מגזין ישראגייז | כתבות וסיפורים מהקהילה הגאה בישראל</title>
-<meta name="description" content="מגזין ישראגייז: כתבות, סיפורים אישיים, חדשות ומדריכים לקהילה הגאה בישראל.">
-<link rel="canonical" href="https://isragays.github.io/magazine.html">
+<title>מגזין ישראגייז | הבית של הגייז בישראל</title>
+<meta name="description" content="כתבות, סיפורים אישיים, חדשות ומדריכים מהקהילה הגאה בישראל.">
 <link rel="icon" type="image/jpeg" href="/אייקון.jpg">
 
 <style>
 :root {
   --bg: #080e1c;
-  --surface: #111c31;
+  --card: #111c31;
   --text: #f6f8ff;
   --muted: #a8b6cc;
   --gold: #f3cb75;
-  --line: rgba(255,255,255,.1);
+  --border: rgba(255,255,255,.1);
 }
 
 * {
@@ -37,7 +36,7 @@ a {
 }
 
 .container {
-  width: min(1120px, calc(100% - 36px));
+  width: min(1100px, calc(100% - 36px));
   margin: auto;
 }
 
@@ -45,33 +44,33 @@ a {
 
 header {
   background: #0b1428;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--border);
   padding: 20px 0;
 }
 
-.nav {
+nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 15px;
 }
 
-.logo {
+.brand {
   color: var(--gold);
   font-size: 24px;
   font-weight: 900;
 }
 
-.home-link {
+.back {
   color: var(--muted);
   font-size: 14px;
 }
 
-/* MAGAZINE HERO */
+/* HERO */
 
 .hero {
   text-align: center;
-  padding: 75px 0 60px;
+  padding: 70px 0 60px;
   background: radial-gradient(
     ellipse at top,
     #1b355b,
@@ -89,18 +88,18 @@ header {
 
 .hero h1 {
   font-size: clamp(38px, 7vw, 68px);
-  line-height: 1.2;
   margin: 15px 0;
+  line-height: 1.2;
 }
 
 .hero p {
-  color: var(--muted);
-  max-width: 620px;
+  max-width: 650px;
   margin: auto;
+  color: var(--muted);
   font-size: 17px;
 }
 
-/* ARTICLES GRID */
+/* CARDS */
 
 .section-title {
   font-size: 27px;
@@ -115,8 +114,8 @@ header {
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--line);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 20px;
   overflow: hidden;
   transition: .25s;
@@ -128,21 +127,21 @@ header {
 }
 
 .card-image {
-  width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
   display: block;
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  background: #1b2c46;
 }
 
 .placeholder {
-  background: #192a45;
   display: grid;
   place-items: center;
-  font-size: 48px;
+  font-size: 45px;
 }
 
 .card-content {
-  padding: 23px;
+  padding: 24px;
 }
 
 .meta {
@@ -164,13 +163,13 @@ header {
 }
 
 .read-more {
+  display: inline-block;
   color: var(--gold);
   font-weight: bold;
-  display: inline-block;
   margin-top: 20px;
 }
 
-/* FULL ARTICLE */
+/* ARTICLE */
 
 .article {
   max-width: 790px;
@@ -180,13 +179,13 @@ header {
 .article h1 {
   font-size: clamp(34px, 6vw, 54px);
   line-height: 1.25;
-  margin: 16px 0;
+  margin: 15px 0;
 }
 
 .article-subtitle {
   color: var(--muted);
-  font-size: 20px;
-  line-height: 1.8;
+  font-size: 19px;
+  line-height: 1.7;
   margin-bottom: 30px;
 }
 
@@ -198,21 +197,23 @@ header {
   margin: 15px 0 35px;
 }
 
+/* FIXED ARTICLE TYPOGRAPHY */
+
 .article-body {
   font-size: 18px;
-  line-height: 1.95;
+  line-height: 1.85;
   overflow-wrap: anywhere;
 }
 
 .article-body p {
-  margin: 0 0 22px;
+  margin: 0 0 20px;
 }
 
 .article-body h2 {
   color: var(--gold);
   font-size: 27px;
-  margin: 38px 0 16px;
-  line-height: 1.5;
+  line-height: 1.4;
+  margin: 38px 0 15px;
 }
 
 .article-body h3 {
@@ -224,6 +225,7 @@ header {
 .article-body img {
   max-width: 100%;
   height: auto;
+  border-radius: 12px;
 }
 
 .article-body a {
@@ -232,40 +234,34 @@ header {
 }
 
 .article-back {
-  color: var(--gold);
   display: inline-block;
   margin-top: 45px;
+  color: var(--gold);
   font-weight: bold;
 }
 
-/* MESSAGES */
-
 .message {
-  grid-column: 1 / -1;
+  grid-column: 1/-1;
   text-align: center;
-  color: var(--muted);
   padding: 65px 20px;
+  color: var(--muted);
 }
 
-/* FOOTER */
-
 footer {
-  border-top: 1px solid var(--line);
-  text-align: center;
+  border-top: 1px solid var(--border);
   padding: 30px 15px;
+  text-align: center;
   color: var(--muted);
   font-size: 14px;
 }
 
-/* MOBILE */
-
-@media (max-width: 900px) {
+@media(max-width:900px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media (max-width: 600px) {
+@media(max-width:600px) {
   .grid {
     grid-template-columns: 1fr;
   }
@@ -274,11 +270,11 @@ footer {
     padding: 55px 0 40px;
   }
 
-  .logo {
+  .brand {
     font-size: 20px;
   }
 
-  .home-link {
+  .back {
     font-size: 12px;
   }
 
@@ -288,6 +284,7 @@ footer {
 
   .article-body {
     font-size: 17px;
+    line-height: 1.8;
   }
 
   .article-subtitle {
@@ -300,10 +297,10 @@ footer {
 <body>
 
 <header>
-  <div class="container nav">
-    <a class="logo" href="/">ישראגייז 🇮🇱🏳️‍🌈</a>
-    <a class="home-link" href="/">חזרה לאתר הראשי ←</a>
-  </div>
+  <nav class="container">
+    <a class="brand" href="/">ישראגייז 🇮🇱🏳️‍🌈</a>
+    <a class="back" href="/">חזרה לאתר הראשי ←</a>
+  </nav>
 </header>
 
 <main id="app">
@@ -318,7 +315,6 @@ footer {
 
   <section class="container">
     <h2 class="section-title">הכתבות האחרונות</h2>
-
     <div class="grid" id="articles-grid">
       <div class="message">טוען כתבות...</div>
     </div>
@@ -327,7 +323,8 @@ footer {
 </main>
 
 <footer>
-  © <span id="year"></span> ישראגייז | הבית של הגייז בישראל
+  © <span id="year"></span>
+  ישראגייז | הבית של הגייז בישראל
 </footer>
 
 <script>
@@ -340,6 +337,8 @@ const app = document.getElementById("app");
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
+/* SAFE TEXT */
+
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, c => ({
     "&": "&amp;",
@@ -350,6 +349,8 @@ function escapeHTML(value) {
   })[c]);
 }
 
+/* DATE */
+
 function formatDate(value) {
   if (!value) return "";
 
@@ -359,6 +360,8 @@ function formatDate(value) {
     ? ""
     : date.toLocaleDateString("he-IL");
 }
+
+/* CATEGORIES */
 
 function categoryName(value) {
   const categories = {
@@ -372,6 +375,8 @@ function categoryName(value) {
   return categories[value] || value || "";
 }
 
+/* IMAGES */
+
 function imageURL(value) {
   if (!value || typeof value !== "string") return "";
 
@@ -380,21 +385,74 @@ function imageURL(value) {
   return "/" + value.replace(/^\/+/, "");
 }
 
+/* ARTICLE LINKS */
+
 function articleLink(filename) {
   return "magazine.html?article=" + encodeURIComponent(filename);
 }
 
-/* CLEAN ARTICLE CONTENT */
+/*
+  TEXT CLEANER
 
-function cleanContent(value) {
-  return String(value || "")
+  Pages CMS stores this article as plain text.
+  It includes literal &nbsp; and many newline characters.
+
+  This function removes unwanted spacing
+  before creating the article layout.
+*/
+
+function cleanText(value) {
+  return String(value ?? "")
     .replace(/&amp;nbsp;/gi, " ")
     .replace(/&nbsp;/gi, " ")
     .replace(/&#160;/gi, " ")
-    .replace(/&#xA0;/gi, " ")
+    .replace(/&#x0*a0;/gi, " ")
     .replace(/\u00a0/g, " ")
-    .replace(/<p>\s*<\/p>/gi, "")
-    .replace(/<p>\s*(?:&nbsp;|\s)*<\/p>/gi, "");
+    .replace(/\r\n?/g, "\n")
+    .replace(/\\n/g, "\n")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n[ \t]+/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+/*
+  ARTICLE BODY
+
+  Converts plain text into paragraphs.
+  Short standalone lines become headings.
+  Empty paragraphs are removed.
+*/
+
+function renderBody(body) {
+  const cleaned = cleanText(body);
+
+  if (!cleaned) return "";
+
+  const blocks = cleaned
+    .split(/\n\s*\n/)
+    .map(block => block.trim())
+    .filter(Boolean);
+
+  return blocks.map(block => {
+    const text = block.replace(/\s*\n\s*/g, " ").trim();
+
+    if (!text) return "";
+
+    const safe = escapeHTML(text);
+
+    const isHeading =
+      text.length <= 75 &&
+      !/[.!?։]$/.test(text) &&
+      !text.includes("<") &&
+      !text.includes(">");
+
+    if (isHeading) {
+      return `<h2>${safe}</h2>`;
+    }
+
+    return `<p>${safe}</p>`;
+  }).join("");
 }
 
 /* ARTICLE CARD */
@@ -409,16 +467,14 @@ function articleCard(article) {
          loading="lazy">`
     : `<div class="card-image placeholder">📰</div>`;
 
-  const category = escapeHTML(categoryName(article.category));
-  const date = escapeHTML(formatDate(article.date));
-
   return `
     <a class="card" href="${articleLink(article.filename)}">
       ${cover}
 
       <div class="card-content">
         <div class="meta">
-          ${category} ${date ? " • " + date : ""}
+          ${escapeHTML(categoryName(article.category))}
+          ${article.date ? " • " + escapeHTML(formatDate(article.date)) : ""}
         </div>
 
         <h2>${escapeHTML(article.title)}</h2>
@@ -485,31 +541,7 @@ async function loadMagazine() {
   }
 }
 
-/* RENDER ARTICLE BODY */
-
-function renderBody(body) {
-  let value = cleanContent(body);
-
-  if (!value.trim()) return "";
-
-  // Pages CMS rich text may contain HTML.
-  if (/<[a-z][\s\S]*>/i.test(value)) {
-    return value;
-  }
-
-  // Plain text fallback.
-  return value
-    .split(/\n\s*\n/)
-    .filter(p => p.trim())
-    .map(p => {
-      const text = p.trim();
-
-      return `<p>${escapeHTML(text).replace(/\n/g, "<br>")}</p>`;
-    })
-    .join("");
-}
-
-/* LOAD FULL ARTICLE */
+/* LOAD ARTICLE */
 
 async function loadArticle(filename) {
   if (
@@ -577,6 +609,8 @@ async function loadArticle(filename) {
       `<div class="message">לא הצלחנו לפתוח את הכתבה.</div>`;
   }
 }
+
+/* START */
 
 const requestedArticle =
   new URLSearchParams(window.location.search).get("article");
