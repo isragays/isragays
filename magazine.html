@@ -4,21 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>מגזין ישראגייז | הבית של הגייז בישראל</title>
+<title>מגזין ישראגייז | כתבות וסיפורים מהקהילה הגאה בישראל</title>
 <meta name="description" content="מגזין ישראגייז: כתבות, סיפורים אישיים, חדשות ומדריכים לקהילה הגאה בישראל.">
 <link rel="canonical" href="https://isragays.github.io/magazine.html">
 <link rel="icon" type="image/jpeg" href="/אייקון.jpg">
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="מגזין ישראגייז">
-<meta property="og:description" content="סיפורים, כתבות ונקודות מבט מהקהילה הגאה בישראל.">
-<meta property="og:url" content="https://isragays.github.io/magazine.html">
 
 <style>
 :root {
   --bg: #080e1c;
   --surface: #111c31;
-  --surface2: #172640;
   --text: #f6f8ff;
   --muted: #a8b6cc;
   --gold: #f3cb75;
@@ -27,10 +21,6 @@
 
 * {
   box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body {
@@ -48,15 +38,15 @@ a {
 
 .container {
   width: min(1120px, calc(100% - 36px));
-  margin-inline: auto;
+  margin: auto;
 }
 
 /* HEADER */
 
 header {
-  background: rgba(10,18,35,.96);
+  background: #0b1428;
   border-bottom: 1px solid var(--line);
-  padding: 19px 0;
+  padding: 20px 0;
 }
 
 .nav {
@@ -68,82 +58,60 @@ header {
 
 .logo {
   color: var(--gold);
-  font-size: 25px;
+  font-size: 24px;
   font-weight: 900;
 }
 
 .home-link {
-  font-size: 14px;
   color: var(--muted);
-  transition: color .2s;
+  font-size: 14px;
 }
 
-.home-link:hover {
-  color: var(--gold);
-}
-
-/* HERO */
+/* MAGAZINE HERO */
 
 .hero {
   text-align: center;
-  padding: 78px 0 62px;
-  background:
-    radial-gradient(
-      ellipse at top,
-      #1b355b 0%,
-      #0b1427 55%,
-      var(--bg) 100%
-    );
+  padding: 75px 0 60px;
+  background: radial-gradient(
+    ellipse at top,
+    #1b355b,
+    #0b1427 65%,
+    var(--bg)
+  );
 }
 
 .eyebrow {
   color: var(--gold);
   font-size: 12px;
-  font-weight: 800;
+  font-weight: bold;
   letter-spacing: 3px;
 }
 
 .hero h1 {
-  font-size: clamp(38px, 7vw, 70px);
-  line-height: 1.15;
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 1.2;
   margin: 15px 0;
-  font-weight: 900;
 }
 
 .hero p {
   color: var(--muted);
+  max-width: 620px;
+  margin: auto;
   font-size: 17px;
-  max-width: 650px;
-  margin: 0 auto;
 }
 
-/* SECTION */
+/* ARTICLES GRID */
 
-.section-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  margin: 35px 0 25px;
+.section-title {
+  font-size: 27px;
+  margin: 40px 0 25px;
 }
-
-.section-head h2 {
-  font-size: 26px;
-  margin: 0;
-}
-
-.section-head span {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-/* ARTICLE GRID */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
-  padding-bottom: 90px;
+  padding-bottom: 85px;
 }
 
 .card {
@@ -151,13 +119,11 @@ header {
   border: 1px solid var(--line);
   border-radius: 20px;
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: transform .25s, border-color .25s;
+  transition: .25s;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
   border-color: var(--gold);
 }
 
@@ -165,20 +131,18 @@ header {
   width: 100%;
   aspect-ratio: 16 / 10;
   object-fit: cover;
-  background: var(--surface2);
+  display: block;
 }
 
 .placeholder {
+  background: #192a45;
   display: grid;
   place-items: center;
   font-size: 48px;
 }
 
 .card-content {
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  padding: 23px;
 }
 
 .meta {
@@ -187,37 +151,36 @@ header {
   font-weight: bold;
 }
 
-.card h3 {
+.card h2 {
   font-size: 23px;
   line-height: 1.4;
-  margin: 13px 0;
+  margin: 12px 0;
 }
 
 .card p {
   color: var(--muted);
   font-size: 15px;
-  margin: 0 0 22px;
-  line-height: 1.8;
+  margin: 0;
 }
 
 .read-more {
   color: var(--gold);
-  font-size: 15px;
   font-weight: bold;
-  margin-top: auto;
+  display: inline-block;
+  margin-top: 20px;
 }
 
-/* ARTICLE PAGE */
+/* FULL ARTICLE */
 
 .article {
   max-width: 790px;
-  margin: 60px auto 100px;
+  margin: 55px auto 100px;
 }
 
 .article h1 {
-  font-size: clamp(34px, 6vw, 56px);
+  font-size: clamp(34px, 6vw, 54px);
   line-height: 1.25;
-  margin: 16px 0 20px;
+  margin: 16px 0;
 }
 
 .article-subtitle {
@@ -229,38 +192,38 @@ header {
 
 .article-cover {
   width: 100%;
-  max-height: 460px;
+  max-height: 470px;
   object-fit: cover;
   border-radius: 20px;
-  margin: 15px 0 38px;
+  margin: 15px 0 35px;
 }
 
 .article-body {
-  font-size: 19px;
-  line-height: 2;
+  font-size: 18px;
+  line-height: 1.95;
   overflow-wrap: anywhere;
 }
 
 .article-body p {
-  margin: 0 0 23px;
+  margin: 0 0 22px;
 }
 
 .article-body h2 {
   color: var(--gold);
-  font-size: 28px;
-  margin: 40px 0 17px;
+  font-size: 27px;
+  margin: 38px 0 16px;
   line-height: 1.5;
 }
 
 .article-body h3 {
   color: var(--gold);
-  margin-top: 30px;
+  font-size: 22px;
+  margin: 30px 0 14px;
 }
 
 .article-body img {
   max-width: 100%;
   height: auto;
-  border-radius: 12px;
 }
 
 .article-body a {
@@ -268,18 +231,11 @@ header {
   text-decoration: underline;
 }
 
-.article-body blockquote {
-  border-right: 3px solid var(--gold);
-  margin: 30px 0;
-  padding: 5px 20px;
-  color: var(--muted);
-}
-
 .article-back {
-  display: inline-block;
   color: var(--gold);
-  font-weight: bold;
+  display: inline-block;
   margin-top: 45px;
+  font-weight: bold;
 }
 
 /* MESSAGES */
@@ -287,16 +243,16 @@ header {
 .message {
   grid-column: 1 / -1;
   text-align: center;
-  padding: 65px 20px;
   color: var(--muted);
+  padding: 65px 20px;
 }
 
 /* FOOTER */
 
 footer {
   border-top: 1px solid var(--line);
-  padding: 32px 20px;
   text-align: center;
+  padding: 30px 15px;
   color: var(--muted);
   font-size: 14px;
 }
@@ -312,11 +268,10 @@ footer {
 @media (max-width: 600px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 20px;
   }
 
   .hero {
-    padding: 55px 0 45px;
+    padding: 55px 0 40px;
   }
 
   .logo {
@@ -328,7 +283,7 @@ footer {
   }
 
   .article {
-    margin: 35px auto 70px;
+    margin-top: 30px;
   }
 
   .article-body {
@@ -338,10 +293,6 @@ footer {
   .article-subtitle {
     font-size: 17px;
   }
-
-  .section-head h2 {
-    font-size: 22px;
-  }
 }
 </style>
 </head>
@@ -350,13 +301,8 @@ footer {
 
 <header>
   <div class="container nav">
-    <a class="logo" href="/">
-      ישראגייז 🇮🇱🏳️‍🌈
-    </a>
-
-    <a class="home-link" href="/">
-      חזרה לאתר הראשי ←
-    </a>
+    <a class="logo" href="/">ישראגייז 🇮🇱🏳️‍🌈</a>
+    <a class="home-link" href="/">חזרה לאתר הראשי ←</a>
   </div>
 </header>
 
@@ -365,21 +311,13 @@ footer {
   <section class="hero">
     <div class="container">
       <div class="eyebrow">ISRAGAYS MAGAZINE</div>
-
       <h1>מגזין ישראגייז.</h1>
-
-      <p>
-        סיפורים, אנשים, חדשות ונקודות מבט
-        מהקהילה הגאה בישראל.
-      </p>
+      <p>סיפורים, אנשים, חדשות ונקודות מבט מהקהילה הגאה בישראל.</p>
     </div>
   </section>
 
   <section class="container">
-    <div class="section-head">
-      <h2>הכתבות האחרונות</h2>
-      <span>תוכן חדש מהקהילה</span>
-    </div>
+    <h2 class="section-title">הכתבות האחרונות</h2>
 
     <div class="grid" id="articles-grid">
       <div class="message">טוען כתבות...</div>
@@ -389,8 +327,7 @@ footer {
 </main>
 
 <footer>
-  © <span id="year"></span>
-  ישראגייז | הבית של הגייז בישראל
+  © <span id="year"></span> ישראגייז | הבית של הגייז בישראל
 </footer>
 
 <script>
@@ -404,16 +341,13 @@ document.getElementById("year").textContent =
   new Date().getFullYear();
 
 function escapeHTML(value) {
-  return String(value ?? "").replace(
-    /[&<>"']/g,
-    character => ({
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;",
-      "'": "&#39;"
-    })[character]
-  );
+  return String(value ?? "").replace(/[&<>"']/g, c => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[c]);
 }
 
 function formatDate(value) {
@@ -421,11 +355,9 @@ function formatDate(value) {
 
   const date = new Date(value);
 
-  if (Number.isNaN(date.getTime())) {
-    return "";
-  }
-
-  return date.toLocaleDateString("he-IL");
+  return Number.isNaN(date.getTime())
+    ? ""
+    : date.toLocaleDateString("he-IL");
 }
 
 function categoryName(value) {
@@ -441,83 +373,76 @@ function categoryName(value) {
 }
 
 function imageURL(value) {
-  if (!value || typeof value !== "string") {
-    return "";
-  }
+  if (!value || typeof value !== "string") return "";
 
-  if (/^https?:\/\//i.test(value)) {
-    return value;
-  }
+  if (/^https?:\/\//i.test(value)) return value;
 
   return "/" + value.replace(/^\/+/, "");
 }
 
 function articleLink(filename) {
-  return "magazine.html?article=" +
-    encodeURIComponent(filename);
+  return "magazine.html?article=" + encodeURIComponent(filename);
 }
+
+/* CLEAN ARTICLE CONTENT */
+
+function cleanContent(value) {
+  return String(value || "")
+    .replace(/&amp;nbsp;/gi, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&#160;/gi, " ")
+    .replace(/&#xA0;/gi, " ")
+    .replace(/\u00a0/g, " ")
+    .replace(/<p>\s*<\/p>/gi, "")
+    .replace(/<p>\s*(?:&nbsp;|\s)*<\/p>/gi, "");
+}
+
+/* ARTICLE CARD */
 
 function articleCard(article) {
   const image = imageURL(article.image);
 
   const cover = image
-    ? `<img
-         class="card-image"
+    ? `<img class="card-image"
          src="${escapeHTML(image)}"
          alt="${escapeHTML(article.title)}"
          loading="lazy">`
     : `<div class="card-image placeholder">📰</div>`;
 
-  const category = escapeHTML(
-    categoryName(article.category)
-  );
-
-  const date = escapeHTML(
-    formatDate(article.date)
-  );
+  const category = escapeHTML(categoryName(article.category));
+  const date = escapeHTML(formatDate(article.date));
 
   return `
     <a class="card" href="${articleLink(article.filename)}">
-
       ${cover}
 
       <div class="card-content">
-
         <div class="meta">
-          ${category}
-          ${date ? " • " + date : ""}
+          ${category} ${date ? " • " + date : ""}
         </div>
 
-        <h3>${escapeHTML(article.title)}</h3>
+        <h2>${escapeHTML(article.title)}</h2>
 
-        <p>
-          ${escapeHTML(article.description || "")}
-        </p>
+        <p>${escapeHTML(article.description || "")}</p>
 
-        <span class="read-more">
-          לקריאת הכתבה ←
-        </span>
-
+        <span class="read-more">לקריאת הכתבה ←</span>
       </div>
-
     </a>
   `;
 }
+
+/* LOAD MAGAZINE */
 
 async function loadMagazine() {
   const grid = document.getElementById("articles-grid");
 
   try {
     const api =
-      "https://api.github.com/repos/" +
-      OWNER + "/" + REPO +
-      "/contents/" + encodeURIComponent(FOLDER);
+      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(FOLDER)}`;
 
     const response = await fetch(api);
 
-    if (!response.ok) {
-      throw new Error("Cannot load articles");
-    }
+    if (!response.ok) throw new Error("Cannot load articles");
 
     const files = await response.json();
 
@@ -529,22 +454,15 @@ async function loadMagazine() {
     const articles = await Promise.all(
       jsonFiles.map(async file => {
         try {
-          const url =
-            "/" + encodeURIComponent(FOLDER) +
-            "/" + encodeURIComponent(file.name);
+          const response = await fetch(
+            `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(file.name)}`
+          );
 
-          const articleResponse = await fetch(url);
+          if (!response.ok) return null;
 
-          if (!articleResponse.ok) {
-            return null;
-          }
+          const data = await response.json();
 
-          const data = await articleResponse.json();
-
-          return {
-            ...data,
-            filename: file.name
-          };
+          return { ...data, filename: file.name };
         } catch {
           return null;
         }
@@ -552,58 +470,46 @@ async function loadMagazine() {
     );
 
     const validArticles = articles
-      .filter(article =>
-        article && article.title
-      )
+      .filter(article => article && article.title)
       .sort((a, b) =>
-        String(b.date || "").localeCompare(
-          String(a.date || "")
-        )
+        String(b.date || "").localeCompare(String(a.date || ""))
       );
 
-    if (!validArticles.length) {
-      grid.innerHTML = `
-        <div class="message">
-          בקרוב יעלו כתבות חדשות למגזין.
-        </div>
-      `;
-      return;
-    }
+    grid.innerHTML = validArticles.length
+      ? validArticles.map(articleCard).join("")
+      : `<div class="message">בקרוב יעלו כתבות חדשות.</div>`;
 
-    grid.innerHTML = validArticles
-      .map(articleCard)
-      .join("");
-
-  } catch (error) {
-    grid.innerHTML = `
-      <div class="message">
-        לא הצלחנו לטעון את הכתבות כרגע.
-        נסו לרענן את העמוד.
-      </div>
-    `;
+  } catch {
+    grid.innerHTML =
+      `<div class="message">לא הצלחנו לטעון כתבות כרגע.</div>`;
   }
 }
 
+/* RENDER ARTICLE BODY */
+
 function renderBody(body) {
-  const value = String(body || "");
+  let value = cleanContent(body);
 
-  if (!value) return "";
+  if (!value.trim()) return "";
 
-  // Pages CMS can save rich text as HTML.
+  // Pages CMS rich text may contain HTML.
   if (/<[a-z][\s\S]*>/i.test(value)) {
     return value;
   }
 
-  // Fallback for plain text.
+  // Plain text fallback.
   return value
     .split(/\n\s*\n/)
-    .map(paragraph =>
-      "<p>" +
-      escapeHTML(paragraph).replace(/\n/g, "<br>") +
-      "</p>"
-    )
+    .filter(p => p.trim())
+    .map(p => {
+      const text = p.trim();
+
+      return `<p>${escapeHTML(text).replace(/\n/g, "<br>")}</p>`;
+    })
     .join("");
 }
+
+/* LOAD FULL ARTICLE */
 
 async function loadArticle(filename) {
   if (
@@ -612,54 +518,35 @@ async function loadArticle(filename) {
     filename.includes("\\") ||
     !filename.endsWith(".json")
   ) {
-    app.innerHTML = `
-      <div class="message">
-        הכתבה המבוקשת לא נמצאה.
-      </div>
-    `;
+    app.innerHTML =
+      `<div class="message">הכתבה לא נמצאה.</div>`;
     return;
   }
 
   try {
-    const url =
-      "/" + encodeURIComponent(FOLDER) +
-      "/" + encodeURIComponent(filename);
+    const response = await fetch(
+      `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(filename)}`
+    );
 
-    const response = await fetch(url);
-
-    if (!response.ok) {
-      throw new Error("Article not found");
-    }
+    if (!response.ok) throw new Error("Not found");
 
     const article = await response.json();
 
     document.title =
-      (article.title || "כתבה") +
-      " | מגזין ישראגייז";
+      (article.title || "כתבה") + " | מגזין ישראגייז";
 
     const image = imageURL(article.image);
 
-    const category = escapeHTML(
-      categoryName(article.category)
-    );
-
-    const date = escapeHTML(
-      formatDate(article.date)
-    );
-
     app.innerHTML = `
       <div class="container">
-
         <article class="article">
 
           <div class="meta">
-            ${category}
-            ${date ? " • " + date : ""}
+            ${escapeHTML(categoryName(article.category))}
+            ${article.date ? " • " + escapeHTML(formatDate(article.date)) : ""}
           </div>
 
-          <h1>
-            ${escapeHTML(article.title)}
-          </h1>
+          <h1>${escapeHTML(article.title)}</h1>
 
           <div class="article-subtitle">
             ${escapeHTML(article.description || "")}
@@ -667,10 +554,9 @@ async function loadArticle(filename) {
 
           ${
             image
-              ? `<img
-                   class="article-cover"
-                   src="${escapeHTML(image)}"
-                   alt="${escapeHTML(article.title)}">`
+              ? `<img class="article-cover"
+                  src="${escapeHTML(image)}"
+                  alt="${escapeHTML(article.title)}">`
               : ""
           }
 
@@ -683,23 +569,17 @@ async function loadArticle(filename) {
           </a>
 
         </article>
-
       </div>
     `;
 
-  } catch (error) {
-    app.innerHTML = `
-      <div class="message">
-        לא הצלחנו לפתוח את הכתבה.
-      </div>
-    `;
+  } catch {
+    app.innerHTML =
+      `<div class="message">לא הצלחנו לפתוח את הכתבה.</div>`;
   }
 }
 
 const requestedArticle =
-  new URLSearchParams(
-    window.location.search
-  ).get("article");
+  new URLSearchParams(window.location.search).get("article");
 
 if (requestedArticle) {
   loadArticle(requestedArticle);
