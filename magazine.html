@@ -6,6 +6,7 @@
 
 <title>מגזין ישראגייז | הבית של הגייז בישראל</title>
 <meta name="description" content="כתבות, סיפורים אישיים, חדשות ומדריכים מהקהילה הגאה בישראל.">
+<link rel="canonical" href="https://isragays.github.io/magazine.html">
 <link rel="icon" type="image/jpeg" href="/אייקון.jpg">
 
 <style>
@@ -20,6 +21,10 @@
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -37,7 +42,7 @@ a {
 
 .container {
   width: min(1100px, calc(100% - 36px));
-  margin: auto;
+  margin-inline: auto;
 }
 
 /* HEADER */
@@ -45,7 +50,7 @@ a {
 header {
   background: #0b1428;
   border-bottom: 1px solid var(--border);
-  padding: 20px 0;
+  padding: 15px 0;
 }
 
 nav {
@@ -56,14 +61,25 @@ nav {
 }
 
 .brand {
-  color: var(--gold);
-  font-size: 24px;
-  font-weight: 900;
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand img {
+  display: block;
+  height: 65px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
 }
 
 .back {
   color: var(--muted);
   font-size: 14px;
+}
+
+.back:hover {
+  color: var(--gold);
 }
 
 /* HERO */
@@ -197,16 +213,20 @@ nav {
   margin: 15px 0 35px;
 }
 
-/* FIXED ARTICLE TYPOGRAPHY */
+/* ARTICLE TEXT — JUSTIFIED */
 
 .article-body {
   font-size: 18px;
   line-height: 1.85;
   overflow-wrap: anywhere;
+  text-align: justify;
+  text-align-last: right;
 }
 
 .article-body p {
   margin: 0 0 20px;
+  text-align: justify;
+  text-align-last: right;
 }
 
 .article-body h2 {
@@ -214,12 +234,14 @@ nav {
   font-size: 27px;
   line-height: 1.4;
   margin: 38px 0 15px;
+  text-align: right;
 }
 
 .article-body h3 {
   color: var(--gold);
   font-size: 22px;
   margin: 30px 0 14px;
+  text-align: right;
 }
 
 .article-body img {
@@ -270,8 +292,9 @@ footer {
     padding: 55px 0 40px;
   }
 
-  .brand {
-    font-size: 20px;
+  .brand img {
+    height: 48px;
+    max-width: 145px;
   }
 
   .back {
@@ -298,8 +321,13 @@ footer {
 
 <header>
   <nav class="container">
-    <a class="brand" href="/">ישראגייז 🇮🇱🏳️‍🌈</a>
-    <a class="back" href="/">חזרה לאתר הראשי ←</a>
+    <a class="brand" href="/" aria-label="ישראגייז - עמוד הבית">
+      <img src="/לוגו.png" alt="לוגו ישראגייז">
+    </a>
+
+    <a class="back" href="/">
+      חזרה לאתר הראשי ←
+    </a>
   </nav>
 </header>
 
@@ -337,8 +365,6 @@ const app = document.getElementById("app");
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-/* SAFE TEXT */
-
 function escapeHTML(value) {
   return String(value ?? "").replace(/[&<>"']/g, c => ({
     "&": "&amp;",
@@ -349,8 +375,6 @@ function escapeHTML(value) {
   })[c]);
 }
 
-/* DATE */
-
 function formatDate(value) {
   if (!value) return "";
 
@@ -360,8 +384,6 @@ function formatDate(value) {
     ? ""
     : date.toLocaleDateString("he-IL");
 }
-
-/* CATEGORIES */
 
 function categoryName(value) {
   const categories = {
@@ -375,8 +397,6 @@ function categoryName(value) {
   return categories[value] || value || "";
 }
 
-/* IMAGES */
-
 function imageURL(value) {
   if (!value || typeof value !== "string") return "";
 
@@ -385,21 +405,11 @@ function imageURL(value) {
   return "/" + value.replace(/^\/+/, "");
 }
 
-/* ARTICLE LINKS */
-
 function articleLink(filename) {
   return "magazine.html?article=" + encodeURIComponent(filename);
 }
 
-/*
-  TEXT CLEANER
-
-  Pages CMS stores this article as plain text.
-  It includes literal &nbsp; and many newline characters.
-
-  This function removes unwanted spacing
-  before creating the article layout.
-*/
+/* CLEAN TEXT FROM PAGES CMS */
 
 function cleanText(value) {
   return String(value ?? "")
@@ -416,13 +426,7 @@ function cleanText(value) {
     .trim();
 }
 
-/*
-  ARTICLE BODY
-
-  Converts plain text into paragraphs.
-  Short standalone lines become headings.
-  Empty paragraphs are removed.
-*/
+/* CREATE PARAGRAPHS AND HEADINGS */
 
 function renderBody(body) {
   const cleaned = cleanText(body);
@@ -447,11 +451,9 @@ function renderBody(body) {
       !text.includes("<") &&
       !text.includes(">");
 
-    if (isHeading) {
-      return `<h2>${safe}</h2>`;
-    }
-
-    return `<p>${safe}</p>`;
+    return isHeading
+      ? `<h2>${safe}</h2>`
+      : `<p>${safe}</p>`;
   }).join("");
 }
 
@@ -541,7 +543,7 @@ async function loadMagazine() {
   }
 }
 
-/* LOAD ARTICLE */
+/* LOAD FULL ARTICLE */
 
 async function loadArticle(filename) {
   if (
