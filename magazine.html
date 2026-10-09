@@ -1,628 +1,666 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>מגזין ישראגייז | הבית של הגייז בישראל</title>
-<meta name="description" content="כתבות, סיפורים אישיים, חדשות ומדריכים מהקהילה הגאה בישראל.">
-<link rel="canonical" href="https://isragays.github.io/magazine.html">
-<link rel="icon" type="image/jpeg" href="/אייקון.jpg">
+  <title>מגזין ישראגייז | הבית של הגייז בישראל</title>
+  <meta name="description" content="מגזין ישראגייז – כתבות, סיפורים אישיים, חדשות ומדריכים מהקהילה הגאה בישראל.">
+  <link rel="canonical" href="https://isragays.github.io/magazine.html">
+  <link rel="icon" href="/logo.png" type="image/png">
 
-<style>
-:root {
-  --bg: #080e1c;
-  --card: #111c31;
-  --text: #f6f8ff;
-  --muted: #a8b6cc;
-  --gold: #f3cb75;
-  --border: rgba(255,255,255,.1);
-}
+  <style>
+    :root {
+      --bg: #080e1c;
+      --header: #0b1428;
+      --card: #111c31;
+      --text: #f6f8ff;
+      --muted: #a8b6cc;
+      --gold: #f3cb75;
+      --border: rgba(255,255,255,.1);
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-html {
-  scroll-behavior: smooth;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-  font-family: Arial, sans-serif;
-  line-height: 1.8;
-}
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, sans-serif;
+      line-height: 1.8;
+    }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-.container {
-  width: min(1100px, calc(100% - 36px));
-  margin-inline: auto;
-}
+    .container {
+      width: min(1100px, calc(100% - 36px));
+      margin-inline: auto;
+    }
 
-/* HEADER */
+    /* HEADER */
 
-header {
-  background: #0b1428;
-  border-bottom: 1px solid var(--border);
-  padding: 15px 0;
-}
+    .site-header {
+      background: var(--header);
+      border-bottom: 1px solid var(--border);
+    }
 
-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-}
+    .nav {
+      min-height: 105px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-}
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      min-width: 0;
+    }
 
-.brand img {
-  display: block;
-  height: 65px;
-  width: auto;
-  max-width: 190px;
-  object-fit: contain;
-}
+    .brand img {
+      display: block;
+      width: auto;
+      height: 70px;
+      max-width: 210px;
+      object-fit: contain;
+    }
 
-.back {
-  color: var(--muted);
-  font-size: 14px;
-}
+    .brand-fallback {
+      display: none;
+      color: var(--gold);
+      font-size: 25px;
+      font-weight: 900;
+    }
 
-.back:hover {
-  color: var(--gold);
-}
+    .back-home {
+      color: var(--muted);
+      font-size: 14px;
+      white-space: nowrap;
+    }
 
-/* HERO */
+    .back-home:hover {
+      color: var(--gold);
+    }
 
-.hero {
-  text-align: center;
-  padding: 70px 0 60px;
-  background: radial-gradient(
-    ellipse at top,
-    #1b355b,
-    #0b1427 65%,
-    var(--bg)
-  );
-}
+    /* MAGAZINE HERO */
 
-.eyebrow {
-  color: var(--gold);
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 3px;
-}
+    .hero {
+      text-align: center;
+      padding: 75px 0 65px;
+      background: radial-gradient(
+        ellipse at top,
+        #1b355b,
+        #0b1427 65%,
+        var(--bg)
+      );
+    }
 
-.hero h1 {
-  font-size: clamp(38px, 7vw, 68px);
-  margin: 15px 0;
-  line-height: 1.2;
-}
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+    }
 
-.hero p {
-  max-width: 650px;
-  margin: auto;
-  color: var(--muted);
-  font-size: 17px;
-}
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 68px);
+      line-height: 1.2;
+      margin: 15px 0;
+    }
 
-/* CARDS */
+    .hero p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
 
-.section-title {
-  font-size: 27px;
-  margin: 40px 0 25px;
-}
+    /* ARTICLE CARDS */
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  padding-bottom: 85px;
-}
+    .section-title {
+      font-size: 27px;
+      margin: 40px 0 25px;
+    }
 
-.card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 20px;
-  overflow: hidden;
-  transition: .25s;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding-bottom: 85px;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-  border-color: var(--gold);
-}
+    .card {
+      display: block;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: transform .25s, border-color .25s;
+    }
 
-.card-image {
-  display: block;
-  width: 100%;
-  aspect-ratio: 16/10;
-  object-fit: cover;
-  background: #1b2c46;
-}
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--gold);
+    }
 
-.placeholder {
-  display: grid;
-  place-items: center;
-  font-size: 45px;
-}
+    .card-image {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      background: #1b2c46;
+    }
 
-.card-content {
-  padding: 24px;
-}
+    .placeholder {
+      display: grid;
+      place-items: center;
+      font-size: 45px;
+    }
 
-.meta {
-  color: var(--gold);
-  font-size: 13px;
-  font-weight: bold;
-}
+    .card-content {
+      padding: 24px;
+    }
 
-.card h2 {
-  font-size: 23px;
-  line-height: 1.4;
-  margin: 12px 0;
-}
+    .meta {
+      color: var(--gold);
+      font-size: 13px;
+      font-weight: bold;
+    }
 
-.card p {
-  color: var(--muted);
-  font-size: 15px;
-  margin: 0;
-}
+    .card h2 {
+      font-size: 23px;
+      line-height: 1.4;
+      margin: 12px 0;
+    }
 
-.read-more {
-  display: inline-block;
-  color: var(--gold);
-  font-weight: bold;
-  margin-top: 20px;
-}
+    .card p {
+      color: var(--muted);
+      font-size: 15px;
+      margin: 0;
+    }
 
-/* ARTICLE */
+    .read-more {
+      display: inline-block;
+      color: var(--gold);
+      font-weight: bold;
+      margin-top: 20px;
+    }
 
-.article {
-  max-width: 790px;
-  margin: 55px auto 100px;
-}
+    /* FULL ARTICLE */
 
-.article h1 {
-  font-size: clamp(34px, 6vw, 54px);
-  line-height: 1.25;
-  margin: 15px 0;
-}
+    .article {
+      max-width: 790px;
+      margin: 55px auto 100px;
+    }
 
-.article-subtitle {
-  color: var(--muted);
-  font-size: 19px;
-  line-height: 1.7;
-  margin-bottom: 30px;
-}
+    .article h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      line-height: 1.25;
+      margin: 15px 0;
+    }
 
-.article-cover {
-  width: 100%;
-  max-height: 470px;
-  object-fit: cover;
-  border-radius: 20px;
-  margin: 15px 0 35px;
-}
+    .article-subtitle {
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
 
-/* ARTICLE TEXT — JUSTIFIED */
+    .article-cover {
+      display: block;
+      width: 100%;
+      max-height: 470px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin: 15px 0 35px;
+    }
 
-.article-body {
-  font-size: 18px;
-  line-height: 1.85;
-  overflow-wrap: anywhere;
-  text-align: justify;
-  text-align-last: right;
-}
+    /* JUSTIFIED ARTICLE TEXT */
 
-.article-body p {
-  margin: 0 0 20px;
-  text-align: justify;
-  text-align-last: right;
-}
+    .article-body {
+      font-size: 18px;
+      line-height: 1.85;
+      overflow-wrap: break-word;
+      text-align: justify;
+      text-align-last: right;
+    }
 
-.article-body h2 {
-  color: var(--gold);
-  font-size: 27px;
-  line-height: 1.4;
-  margin: 38px 0 15px;
-  text-align: right;
-}
+    .article-body p {
+      margin: 0 0 22px;
+      text-align: justify;
+      text-align-last: right;
+    }
 
-.article-body h3 {
-  color: var(--gold);
-  font-size: 22px;
-  margin: 30px 0 14px;
-  text-align: right;
-}
+    .article-body h2 {
+      color: var(--gold);
+      font-size: 27px;
+      line-height: 1.4;
+      margin: 38px 0 15px;
+      text-align: right;
+    }
 
-.article-body img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
+    .article-body h3 {
+      color: var(--gold);
+      font-size: 22px;
+      margin: 30px 0 14px;
+      text-align: right;
+    }
 
-.article-body a {
-  color: var(--gold);
-  text-decoration: underline;
-}
+    .article-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
 
-.article-back {
-  display: inline-block;
-  margin-top: 45px;
-  color: var(--gold);
-  font-weight: bold;
-}
+    .article-body a {
+      color: var(--gold);
+      text-decoration: underline;
+    }
 
-.message {
-  grid-column: 1/-1;
-  text-align: center;
-  padding: 65px 20px;
-  color: var(--muted);
-}
+    .article-back {
+      display: inline-block;
+      margin-top: 45px;
+      color: var(--gold);
+      font-weight: bold;
+    }
 
-footer {
-  border-top: 1px solid var(--border);
-  padding: 30px 15px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 14px;
-}
+    .message {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 65px 20px;
+      color: var(--muted);
+    }
 
-@media(max-width:900px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
+    /* FOOTER */
 
-@media(max-width:600px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 15px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-  .hero {
-    padding: 55px 0 40px;
-  }
+    /* MOBILE */
 
-  .brand img {
-    height: 48px;
-    max-width: 145px;
-  }
+    @media (max-width: 900px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
-  .back {
-    font-size: 12px;
-  }
+    @media (max-width: 600px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
 
-  .article {
-    margin-top: 30px;
-  }
+      .nav {
+        min-height: 85px;
+      }
 
-  .article-body {
-    font-size: 17px;
-    line-height: 1.8;
-  }
+      .brand img {
+        height: 52px;
+        max-width: 155px;
+      }
 
-  .article-subtitle {
-    font-size: 17px;
-  }
-}
-</style>
+      .brand-fallback {
+        font-size: 21px;
+      }
+
+      .back-home {
+        font-size: 12px;
+      }
+
+      .hero {
+        padding: 55px 0 45px;
+      }
+
+      .article {
+        margin-top: 30px;
+      }
+
+      .article-body {
+        font-size: 17px;
+        line-height: 1.8;
+      }
+
+      .article-subtitle {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-  <nav class="container">
-    <a class="brand" href="/" aria-label="ישראגייז - עמוד הבית">
-      <img src="/לוגו.png" alt="לוגו ישראגייז">
-    </a>
+  <!-- SAME HEADER ON BOTH MAGAZINE AND ARTICLE PAGES -->
 
-    <a class="back" href="/">
-      חזרה לאתר הראשי ←
-    </a>
-  </nav>
-</header>
+  <header class="site-header">
+    <nav class="container nav">
 
-<main id="app">
+      <a class="brand" href="/" aria-label="ישראגייז - האתר הראשי">
+        <img
+          src="/logo.png"
+          alt="ישראגייז"
+          id="site-logo"
+          onerror="this.style.display='none';document.getElementById('logo-fallback').style.display='inline-block';"
+        >
+        <span class="brand-fallback" id="logo-fallback">ישראגייז</span>
+      </a>
 
-  <section class="hero">
-    <div class="container">
-      <div class="eyebrow">ISRAGAYS MAGAZINE</div>
-      <h1>מגזין ישראגייז.</h1>
-      <p>סיפורים, אנשים, חדשות ונקודות מבט מהקהילה הגאה בישראל.</p>
-    </div>
-  </section>
+      <a class="back-home" href="/">
+        חזרה לאתר הראשי ←
+      </a>
 
-  <section class="container">
-    <h2 class="section-title">הכתבות האחרונות</h2>
-    <div class="grid" id="articles-grid">
-      <div class="message">טוען כתבות...</div>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-</main>
+  <main id="app">
 
-<footer>
-  © <span id="year"></span>
-  ישראגייז | הבית של הגייז בישראל
-</footer>
-
-<script>
-const OWNER = "isragays";
-const REPO = "isragays.github.io";
-const FOLDER = "מאמרים";
-
-const app = document.getElementById("app");
-
-document.getElementById("year").textContent =
-  new Date().getFullYear();
-
-function escapeHTML(value) {
-  return String(value ?? "").replace(/[&<>"']/g, c => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;"
-  })[c]);
-}
-
-function formatDate(value) {
-  if (!value) return "";
-
-  const date = new Date(value);
-
-  return Number.isNaN(date.getTime())
-    ? ""
-    : date.toLocaleDateString("he-IL");
-}
-
-function categoryName(value) {
-  const categories = {
-    community: "חברה וקהילה",
-    news: "חדשות",
-    relationships: "היכרויות וזוגיות",
-    guides: "מדריכים",
-    events: "אירועים"
-  };
-
-  return categories[value] || value || "";
-}
-
-function imageURL(value) {
-  if (!value || typeof value !== "string") return "";
-
-  if (/^https?:\/\//i.test(value)) return value;
-
-  return "/" + value.replace(/^\/+/, "");
-}
-
-function articleLink(filename) {
-  return "magazine.html?article=" + encodeURIComponent(filename);
-}
-
-/* CLEAN TEXT FROM PAGES CMS */
-
-function cleanText(value) {
-  return String(value ?? "")
-    .replace(/&amp;nbsp;/gi, " ")
-    .replace(/&nbsp;/gi, " ")
-    .replace(/&#160;/gi, " ")
-    .replace(/&#x0*a0;/gi, " ")
-    .replace(/\u00a0/g, " ")
-    .replace(/\r\n?/g, "\n")
-    .replace(/\\n/g, "\n")
-    .replace(/[ \t]+\n/g, "\n")
-    .replace(/\n[ \t]+/g, "\n")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
-}
-
-/* CREATE PARAGRAPHS AND HEADINGS */
-
-function renderBody(body) {
-  const cleaned = cleanText(body);
-
-  if (!cleaned) return "";
-
-  const blocks = cleaned
-    .split(/\n\s*\n/)
-    .map(block => block.trim())
-    .filter(Boolean);
-
-  return blocks.map(block => {
-    const text = block.replace(/\s*\n\s*/g, " ").trim();
-
-    if (!text) return "";
-
-    const safe = escapeHTML(text);
-
-    const isHeading =
-      text.length <= 75 &&
-      !/[.!?։]$/.test(text) &&
-      !text.includes("<") &&
-      !text.includes(">");
-
-    return isHeading
-      ? `<h2>${safe}</h2>`
-      : `<p>${safe}</p>`;
-  }).join("");
-}
-
-/* ARTICLE CARD */
-
-function articleCard(article) {
-  const image = imageURL(article.image);
-
-  const cover = image
-    ? `<img class="card-image"
-         src="${escapeHTML(image)}"
-         alt="${escapeHTML(article.title)}"
-         loading="lazy">`
-    : `<div class="card-image placeholder">📰</div>`;
-
-  return `
-    <a class="card" href="${articleLink(article.filename)}">
-      ${cover}
-
-      <div class="card-content">
-        <div class="meta">
-          ${escapeHTML(categoryName(article.category))}
-          ${article.date ? " • " + escapeHTML(formatDate(article.date)) : ""}
-        </div>
-
-        <h2>${escapeHTML(article.title)}</h2>
-
-        <p>${escapeHTML(article.description || "")}</p>
-
-        <span class="read-more">לקריאת הכתבה ←</span>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">ISRAGAYS MAGAZINE</div>
+        <h1>מגזין ישראגייז.</h1>
+        <p>סיפורים, אנשים, חדשות ונקודות מבט מהקהילה הגאה בישראל.</p>
       </div>
-    </a>
-  `;
-}
+    </section>
 
-/* LOAD MAGAZINE */
+    <section class="container">
+      <h2 class="section-title">הכתבות האחרונות</h2>
 
-async function loadMagazine() {
-  const grid = document.getElementById("articles-grid");
+      <div class="grid" id="articles-grid">
+        <div class="message">טוען כתבות...</div>
+      </div>
+    </section>
 
-  try {
-    const api =
-      `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(FOLDER)}`;
+  </main>
 
-    const response = await fetch(api);
+  <footer>
+    © <span id="year"></span> ישראגייז | הבית של הגייז בישראל
+  </footer>
 
-    if (!response.ok) throw new Error("Cannot load articles");
+  <script>
+    const OWNER = "isragays";
+    const REPO = "isragays.github.io";
+    const FOLDER = "מאמרים";
 
-    const files = await response.json();
+    const app = document.getElementById("app");
 
-    const jsonFiles = files.filter(file =>
-      file.type === "file" &&
-      file.name.toLowerCase().endsWith(".json")
-    );
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
 
-    const articles = await Promise.all(
-      jsonFiles.map(async file => {
-        try {
-          const response = await fetch(
-            `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(file.name)}`
+    function escapeHTML(value) {
+      return String(value ?? "").replace(/[&<>"']/g, char => ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;"
+      })[char]);
+    }
+
+    function formatDate(value) {
+      if (!value) return "";
+
+      const date = new Date(value);
+
+      return Number.isNaN(date.getTime())
+        ? ""
+        : date.toLocaleDateString("he-IL");
+    }
+
+    function categoryName(value) {
+      const categories = {
+        community: "חברה וקהילה",
+        news: "חדשות",
+        relationships: "היכרויות וזוגיות",
+        guides: "מדריכים",
+        events: "אירועים"
+      };
+
+      return categories[value] || value || "";
+    }
+
+    function imageURL(value) {
+      if (!value || typeof value !== "string") return "";
+
+      if (/^https?:\/\//i.test(value)) return value;
+
+      return "/" + value.replace(/^\/+/, "");
+    }
+
+    function articleLink(filename) {
+      return "magazine.html?article=" + encodeURIComponent(filename);
+    }
+
+    /* REMOVE UNWANTED SPACES AND HTML ENTITIES */
+
+    function cleanText(value) {
+      return String(value ?? "")
+        .replace(/&amp;nbsp;/gi, " ")
+        .replace(/&nbsp;/gi, " ")
+        .replace(/&#160;/gi, " ")
+        .replace(/&#x0*a0;/gi, " ")
+        .replace(/\u00a0/g, " ")
+        .replace(/\r\n?/g, "\n")
+        .replace(/\\n/g, "\n")
+        .replace(/[ \t]+\n/g, "\n")
+        .replace(/\n[ \t]+/g, "\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .trim();
+    }
+
+    /* FORMAT ARTICLE PARAGRAPHS */
+
+    function renderBody(body) {
+      const cleaned = cleanText(body);
+
+      if (!cleaned) return "";
+
+      const blocks = cleaned
+        .split(/\n\s*\n/)
+        .map(block => block.trim())
+        .filter(Boolean);
+
+      return blocks.map(block => {
+        const text = block.replace(/\s*\n\s*/g, " ").trim();
+
+        if (!text) return "";
+
+        const safe = escapeHTML(text);
+
+        const isHeading =
+          text.length <= 75 &&
+          !/[.!?։]$/.test(text) &&
+          !text.includes("<") &&
+          !text.includes(">");
+
+        return isHeading
+          ? `<h2>${safe}</h2>`
+          : `<p>${safe}</p>`;
+      }).join("");
+    }
+
+    /* ARTICLE PREVIEW CARD */
+
+    function articleCard(article) {
+      const image = imageURL(article.image);
+
+      const cover = image
+        ? `<img
+             class="card-image"
+             src="${escapeHTML(image)}"
+             alt="${escapeHTML(article.title)}"
+             loading="lazy"
+           >`
+        : `<div class="card-image placeholder">📰</div>`;
+
+      return `
+        <a class="card" href="${articleLink(article.filename)}">
+          ${cover}
+
+          <div class="card-content">
+            <div class="meta">
+              ${escapeHTML(categoryName(article.category))}
+              ${article.date ? " • " + escapeHTML(formatDate(article.date)) : ""}
+            </div>
+
+            <h2>${escapeHTML(article.title)}</h2>
+
+            <p>${escapeHTML(article.description || "")}</p>
+
+            <span class="read-more">לקריאת הכתבה ←</span>
+          </div>
+        </a>
+      `;
+    }
+
+    /* LOAD ALL ARTICLES */
+
+    async function loadMagazine() {
+      const grid = document.getElementById("articles-grid");
+
+      try {
+        const api =
+          `https://api.github.com/repos/${OWNER}/${REPO}/contents/${encodeURIComponent(FOLDER)}`;
+
+        const response = await fetch(api);
+
+        if (!response.ok) throw new Error("Cannot load articles");
+
+        const files = await response.json();
+
+        const jsonFiles = files.filter(file =>
+          file.type === "file" &&
+          file.name.toLowerCase().endsWith(".json")
+        );
+
+        const articles = await Promise.all(
+          jsonFiles.map(async file => {
+            try {
+              const response = await fetch(
+                `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(file.name)}`
+              );
+
+              if (!response.ok) return null;
+
+              const data = await response.json();
+
+              return { ...data, filename: file.name };
+            } catch {
+              return null;
+            }
+          })
+        );
+
+        const validArticles = articles
+          .filter(article => article && article.title)
+          .sort((a, b) =>
+            String(b.date || "").localeCompare(String(a.date || ""))
           );
 
-          if (!response.ok) return null;
+        grid.innerHTML = validArticles.length
+          ? validArticles.map(articleCard).join("")
+          : `<div class="message">בקרוב יעלו כתבות חדשות.</div>`;
 
-          const data = await response.json();
+      } catch {
+        grid.innerHTML =
+          `<div class="message">לא הצלחנו לטעון כתבות כרגע.</div>`;
+      }
+    }
 
-          return { ...data, filename: file.name };
-        } catch {
-          return null;
-        }
-      })
-    );
+    /* LOAD SINGLE ARTICLE */
 
-    const validArticles = articles
-      .filter(article => article && article.title)
-      .sort((a, b) =>
-        String(b.date || "").localeCompare(String(a.date || ""))
-      );
+    async function loadArticle(filename) {
+      if (
+        !filename ||
+        filename.includes("/") ||
+        filename.includes("\\") ||
+        !filename.endsWith(".json")
+      ) {
+        app.innerHTML =
+          `<div class="message">הכתבה לא נמצאה.</div>`;
+        return;
+      }
 
-    grid.innerHTML = validArticles.length
-      ? validArticles.map(articleCard).join("")
-      : `<div class="message">בקרוב יעלו כתבות חדשות.</div>`;
+      try {
+        const response = await fetch(
+          `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(filename)}`
+        );
 
-  } catch {
-    grid.innerHTML =
-      `<div class="message">לא הצלחנו לטעון כתבות כרגע.</div>`;
-  }
-}
+        if (!response.ok) throw new Error("Not found");
 
-/* LOAD FULL ARTICLE */
+        const article = await response.json();
 
-async function loadArticle(filename) {
-  if (
-    !filename ||
-    filename.includes("/") ||
-    filename.includes("\\") ||
-    !filename.endsWith(".json")
-  ) {
-    app.innerHTML =
-      `<div class="message">הכתבה לא נמצאה.</div>`;
-    return;
-  }
+        document.title =
+          (article.title || "כתבה") + " | מגזין ישראגייז";
 
-  try {
-    const response = await fetch(
-      `/${encodeURIComponent(FOLDER)}/${encodeURIComponent(filename)}`
-    );
+        const image = imageURL(article.image);
 
-    if (!response.ok) throw new Error("Not found");
+        app.innerHTML = `
+          <div class="container">
+            <article class="article">
 
-    const article = await response.json();
+              <div class="meta">
+                ${escapeHTML(categoryName(article.category))}
+                ${article.date ? " • " + escapeHTML(formatDate(article.date)) : ""}
+              </div>
 
-    document.title =
-      (article.title || "כתבה") + " | מגזין ישראגייז";
+              <h1>${escapeHTML(article.title)}</h1>
 
-    const image = imageURL(article.image);
+              <div class="article-subtitle">
+                ${escapeHTML(article.description || "")}
+              </div>
 
-    app.innerHTML = `
-      <div class="container">
-        <article class="article">
+              ${
+                image
+                  ? `<img
+                       class="article-cover"
+                       src="${escapeHTML(image)}"
+                       alt="${escapeHTML(article.title)}"
+                     >`
+                  : ""
+              }
 
-          <div class="meta">
-            ${escapeHTML(categoryName(article.category))}
-            ${article.date ? " • " + escapeHTML(formatDate(article.date)) : ""}
+              <div class="article-body">
+                ${renderBody(article.body)}
+              </div>
+
+              <a class="article-back" href="magazine.html">
+                → חזרה לכל הכתבות
+              </a>
+
+            </article>
           </div>
+        `;
 
-          <h1>${escapeHTML(article.title)}</h1>
+      } catch {
+        app.innerHTML =
+          `<div class="message">לא הצלחנו לפתוח את הכתבה.</div>`;
+      }
+    }
 
-          <div class="article-subtitle">
-            ${escapeHTML(article.description || "")}
-          </div>
+    /* START MAGAZINE */
 
-          ${
-            image
-              ? `<img class="article-cover"
-                  src="${escapeHTML(image)}"
-                  alt="${escapeHTML(article.title)}">`
-              : ""
-          }
+    const requestedArticle =
+      new URLSearchParams(window.location.search).get("article");
 
-          <div class="article-body">
-            ${renderBody(article.body)}
-          </div>
-
-          <a class="article-back" href="magazine.html">
-            → חזרה לכל הכתבות
-          </a>
-
-        </article>
-      </div>
-    `;
-
-  } catch {
-    app.innerHTML =
-      `<div class="message">לא הצלחנו לפתוח את הכתבה.</div>`;
-  }
-}
-
-/* START */
-
-const requestedArticle =
-  new URLSearchParams(window.location.search).get("article");
-
-if (requestedArticle) {
-  loadArticle(requestedArticle);
-} else {
-  loadMagazine();
-}
-</script>
+    if (requestedArticle) {
+      loadArticle(requestedArticle);
+    } else {
+      loadMagazine();
+    }
+  </script>
 
 </body>
 </html>
